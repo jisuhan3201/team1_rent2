@@ -6,6 +6,8 @@ class CreateItems < ActiveRecord::Migration[5.1]
       t.string :category
       t.string :sub_category
       t.string :image
+      t.string :status, default: :available
+
 
       t.timestamps
     end
