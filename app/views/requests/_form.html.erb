@@ -1,41 +1,32 @@
 <%= form_with(model: request, local: true) do |form| %>
-  <% if item.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
-
-      <ul>
-      <% item.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
   <div class="field">
-    <%= form.hidden_field :owner_id, value: @owner_id %>
+    <%= form.hidden_field :item_id, value: @item.id %>
   </div>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :item_name %>
+    <%= form.hidden_field :user_id, value: current_user.id %>
   </div>
 
   <div class="field">
-    <%= form.label :category %>
-    <%= form.text_field :category, id: :item_category %>
+    <%= form.hidden_field :owner_id, value: @owner.id %>
   </div>
 
   <div class="field">
-    <%= form.label :sub_category %>
-    <%= form.text_field :sub_category, id: :item_sub_category %>
+    <%= form.hidden_field :status, value: @item.status %>
   </div>
 
   <div class="field">
-    <%= form.label :image %>
-    <%= form.file_field :image, id: :item_image %>
+    <%= form.label :rent_begin_date %>
+    <%= form.date_field :rent_begin_date, id: :rent_begin_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rent_due_date %>
+    <%= form.date_field :rent_due_date, id: :rent_due_date %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit :Submit %>
   </div>
 <% end %>

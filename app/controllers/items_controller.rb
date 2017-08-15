@@ -5,6 +5,7 @@ class ItemsController < ApplicationController
   # GET /items.json
   def index
     @items = Item.where(user_id: current_user.id)
+
   end
 
   # GET /items/1

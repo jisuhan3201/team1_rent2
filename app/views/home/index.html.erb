@@ -24,7 +24,7 @@
         <td><%= image_tag item.image.thumb %></td>
         <td><%= item.status %></td>
         <td><%= item.created_at %></td>
-        <td><%= link_to "Rent!", :controller => "requests", :action => "new", item_id: item.id %></td>
+        <td><%= link_to "렌트하러 가기", :controller => "requests", :action => "index", item_id: item.id %></td>
       </tr>
     <% end %>
   </tbody>

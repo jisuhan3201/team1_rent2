@@ -1,2 +1,28 @@
-<h1>Requests#index</h1>
-<p>Find me in app/views/requests/index.html.erb</p>
+<h1>Rent item info</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Owner</th>
+      <th>Name</th>
+      <th>Category</th>
+      <th>Sub category</th>
+      <th>Image</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <tr>
+        <td><%= @owner.email %></td>
+        <td><%= @item.name %></td>
+        <td><%= @item.category %></td>
+        <td><%= @item.sub_category %></td>
+        <td><%= image_tag @item.image.thumb %></td>
+        <td><%= @item.status %></td>
+      </tr>
+  </tbody>
+</table>
+
+<%= link_to "대여 신청하러 가기", :controller => "requests", item_id: @item.id, :action => "new"  %>
